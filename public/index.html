@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KnowledgeGraphForge - Knowledge Graph Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>.glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}.gradient-text{background:linear-gradient(135deg,#8b5cf6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}</style>
+</head>
+<body class="bg-[#0a0a0f] min-h-screen text-white">
+  <header class="glass sticky top-0">
+    <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-4"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-cyan-600 flex items-center justify-center shadow-lg"><i class="fas fa-project-diagram text-2xl"></i></div><div><h1 class="text-2xl font-bold gradient-text">KnowledgeGraphForge</h1><p class="text-xs text-slate-400">Knowledge Graph Builder</p></div></div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-8 py-10">
+    <div class="grid grid-cols-4 gap-6 mb-10">
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Nodes</p><p class="text-4xl font-bold">1,247</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Relationships</p><p class="text-4xl font-bold text-violet-400">3,456</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Sources</p><p class="text-4xl font-bold text-cyan-400">48</p></div>
+      <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Teams</p><p class="text-4xl font-bold">6</p></div>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="glass rounded-2xl p-8"><h2 class="text-xl font-bold mb-6"><i class="fas fa-magic text-violet-400 mr-3"></i>Build Graph</h2>
+        <div class="space-y-4"><textarea placeholder="Paste documents, notes, or chat logs..." class="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500 h-40"></textarea><button class="w-full py-4 bg-gradient-to-r from-violet-500 to-cyan-600 rounded-xl font-semibold"><i class="fas fa-wand-magic-sparkles mr-2"></i>Extract Entities</button></div>
+      </div>
+      <div class="glass rounded-2xl p-8"><h2 class="text-xl font-bold mb-6"><i class="fas fa-share-nodes text-cyan-400 mr-3"></i>Recent Graphs</h2>
+        <div class="space-y-3">
+          {[{name:'Product Knowledge',nodes:450,rels:1200,date:'2h ago'},{name:'Customer Insights',nodes:320,rels:890,date:'Yesterday'},{name:'Team Wiki',nodes:280,rels:650,date:'3 days ago'}].map(g=>`
+          <div class="bg-white/5 rounded-xl p-4"><p class="font-semibold mb-2">${g.name}</p><div class="flex gap-4 text-slate-400 text-sm"><span>${g.nodes} nodes</span><span>${g.rels} relations</span><span>${g.date}</span></div></div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
